@@ -18,6 +18,12 @@ body {
     margin: 0 auto;
 }
 
+.container {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
 .project {
   width: 370px;
   border: 1px solid #ddd;
