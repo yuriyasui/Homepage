@@ -9,55 +9,53 @@
     
   <!-- Year Converter -->
   <div class="project">
-    <main class="main-block">
-        <div class="container">
-            <section>
-                <h2>Japanese <> Western Year Converter</h2>
-            </section>
-        </div>
-        <div class="container">
-            <label for="year">Enter a year:</label>
-            <select id="era">
-                <option value="western">西暦</option>
-                <option value="showa">昭和</option>
-                <option value="heisei">平成</option>
-                <option value="reiwa">令和</option>
-            </select>
-            <input type="number" id="year">
-            <button id="convert">Convert</button>
-            
-            <br>
+    <div class="container">
+        <section>
+            <h2>Japanese <> Western Year Converter</h2>
+        </section>
+    </div>
+    <div class="container">
+        <label for="year">Enter a year:</label>
+        <select id="era">
+            <option value="western">西暦</option>
+            <option value="showa">昭和</option>
+            <option value="heisei">平成</option>
+            <option value="reiwa">令和</option>
+        </select>
+        <input type="number" id="year">
+        <button id="convert">Convert</button>
+        
+        <br>
 
-            <p id="result"></p>
-        </div>
-        <script>
-            // Event listeners for buttons
-            document.getElementById("convert").addEventListener("click", function() {
-              const apiEndpoint = 'https://w946sa1cyc.execute-api.us-east-2.amazonaws.com/prod/yearConverter';
-              const era = document.getElementById("era").value;
-              const year = document.getElementById("year").value;
-              const urlWithParameters = `${apiEndpoint}?era=${era}&year=${year}`;
+        <p id="result"></p>
+    </div>
+    <script>
+        // Event listeners for buttons
+        document.getElementById("convert").addEventListener("click", function() {
+          const apiEndpoint = 'https://w946sa1cyc.execute-api.us-east-2.amazonaws.com/prod/yearConverter';
+          const era = document.getElementById("era").value;
+          const year = document.getElementById("year").value;
+          const urlWithParameters = `${apiEndpoint}?era=${era}&year=${year}`;
 
-              fetch(urlWithParameters)
-                .then(response => {
-                  if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                  }
-                  return response.json();
-                })
-                .then(data => {
-                  // Process the API response data
-                  document.getElementById("result").textContent = data.converted_year;
-                  console.log('API Response:', data);
-                })
-                .catch(error => {
-                  // Handle errors
-                  console.error('API Error:', error);
-                  alert('API Error: ' + error.message);
-                });
+          fetch(urlWithParameters)
+            .then(response => {
+              if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+              }
+              return response.json();
+            })
+            .then(data => {
+              // Process the API response data
+              document.getElementById("result").textContent = data.converted_year;
+              console.log('API Response:', data);
+            })
+            .catch(error => {
+              // Handle errors
+              console.error('API Error:', error);
+              alert('API Error: ' + error.message);
             });
-        </script>
-    </main>
+        });
+    </script>
   </div>
 </body>
 </html>
