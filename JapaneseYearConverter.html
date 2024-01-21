@@ -29,26 +29,22 @@
  
   <!-- Year Converter -->
   <div class="project">
-    <div class="container">
-        <section>
-            <h2>Japanese <> Western Year Converter (Full-Stack Web service)</h2>
-        </section>
-    </div>
-    <div class="container">
-        <label for="year">Enter a year:</label>
-        <select id="era">
-            <option value="western">西暦(Western)</option>
-            <option value="showa">昭和(Showa)</option>
-            <option value="heisei">平成(Heisei)</option>
-            <option value="reiwa">令和(Reiwa)</option>
-        </select>
-        <input type="number" id="year">
-        <button id="convert">Convert</button>
-        
-        <br>
+  <h2>Japanese <> Western Year Converter (Full-Stack Web service)</h2>
+  <div class="container">
+      <label for="year">Enter a year:</label>
+      <select id="era">
+          <option value="western">西暦(Western)</option>
+          <option value="showa">昭和(Showa)</option>
+          <option value="heisei">平成(Heisei)</option>
+          <option value="reiwa">令和(Reiwa)</option>
+      </select>
+      <input type="number" id="year">
+      <button id="convert">Convert</button>
+      
+      <br>
 
-        <p id="result"></p>
-    </div>
+      <p id="result"></p>
+  </div>
     <script>
         // Event listeners for buttons
         document.getElementById("convert").addEventListener("click", function() {
